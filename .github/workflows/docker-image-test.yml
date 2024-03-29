@@ -17,4 +17,4 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag ask_demo:$(date +%s)
     - name: Run image
-      run: docker:ask_demo 
+      run: docker run -it ask_demo 
