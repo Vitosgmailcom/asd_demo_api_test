@@ -1,0 +1,12 @@
+name: My GA Workflow
+
+on: push
+
+jobs:
+  myJobName:
+    runs-on: ubuntu-latest
+    container: ./ask_demo
+    steps:
+      - name: Ensure tools are available
+        shell: bash
+        run: pytest --version
