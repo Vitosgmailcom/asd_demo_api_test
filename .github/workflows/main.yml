@@ -1,0 +1,4 @@
+    - name: run-docker
+  # You may pin to the exact commit or the version.
+  # uses: CoronelEzequiel/run-docker@f81fe39c97c551b62755f6c8b8be66bcf23bc4df
+  uses: CoronelEzequiel/run-docker@v1
