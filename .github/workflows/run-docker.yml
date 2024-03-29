@@ -5,7 +5,7 @@ on: push
 jobs:
   myJobName:
     runs-on: ubuntu-latest
-    container: ./ask_demo
+    container: ask_demo
     steps:
       - name: Ensure tools are available
         shell: bash
