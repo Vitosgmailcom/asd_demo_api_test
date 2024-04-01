@@ -1,29 +1,38 @@
+
 from src.Utility.credentialsUtility import credentialsDB
 
 import pymysql.cursors
+import logging as log
 
-class ConnactDAO(object):
+class ConnectDAO(object):
     def __init__(self):
-        self.cred = credentialsDB()
+        self.cred_info = credentialsDB()
+        log.info(self.cred_info)
 
-    def connect_ASK_DB(self):
+        # import pdb; pdb.set_trace()
+    def connectASK(self):
         connection = pymysql.connect(
-            user=self.cred['db_user'],
-            password=self.cred['db_pass'],
-            database=self.cred['db_name'],
-            host=self.cred['db_host'],
-            port=int(self.cred['db_port'])
-            )
+            user=self.cred_info['db_user'],
+            password=self.cred_info['db_pass'],
+            database=self.cred_info['db_name'],
+            port=self.cred_info['db_port'],
+            host=self.cred_info['db_host']
+        )
         return connection
 
+
+
+
     def execute_SELECT(self, sql):
-        conn = self.connect_ASK_DB()
+        conn = self.connectASK()
 
         with conn.cursor(pymysql.cursors.DictCursor) as cursor:
-
             cursor.execute(sql)
             result = cursor.fetchall()
-
             return result
+
+
+
+
 
 

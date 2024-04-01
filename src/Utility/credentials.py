@@ -8,15 +8,16 @@ def credentialsDB():
     db_port = os.environ.get('DB_PORT')
     db_host = os.environ.get('DB_HOST')
 
-    if not db_user and not db_name:
-        raise Exception(f"The db_user and db_pass aren't setup.")
+    if not db_user and not db_pass:
+        raise Exception(f"THe DB_USER and DB_PASS must be set up")
     else:
-        cred_db = {
+        cred_info = {
             'db_user': db_user,
             'db_pass': db_pass,
             'db_name': db_name,
             'db_port': db_port,
-            'db_host': db_host
-            }
-        return cred_db
+            'db_host': db_host,
+        }
+        return cred_info
+
 

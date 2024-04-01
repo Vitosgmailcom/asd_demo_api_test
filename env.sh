@@ -1,4 +1,4 @@
-
+#!/bin/bash
 
 export DB_USER=testuser
 export DB_PASS=password

@@ -1,15 +1,17 @@
+
 from src.Helper.userHelperDB import USerHelperDB
 
 import pytest
 
 @pytest.mark.tcid99
-def test_get_random_user_DB():
-    exec = USerHelperDB()
-    result = exec.get_random_user_info_from_DB(qty=1)
+def test_get_random_user_from_ASK_DB():
+    qty = 2
+    exec_db = USerHelperDB()
+    result_db = exec_db.get_random_user_info_from_DB(qty=qty)
+
+    assert len(result_db) == int(qty), f"Expected qty: '{qty} but returned: '{len(result_db)}''"
 
     # import pdb; pdb.set_trace()
-
-    assert result[0]['group'] == 'APG777', f"Expected group: 'APG777' but DB returned group: '{result[0]['group']}'"
 
 
 

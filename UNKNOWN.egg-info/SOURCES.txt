@@ -6,11 +6,8 @@ UNKNOWN.egg-info/requires.txt
 UNKNOWN.egg-info/top_level.txt
 src/__init__.py
 src/DAO/__init__.py
-src/DAO/connectDAO.py
 src/Helper/__init__.py
-src/Helper/userHelperDB.py
 src/Utility/__init__.py
-src/Utility/credentialsUtility.py
 tests/__init__.py
 tests/smoke_test.py
 tests/test_healthcheck.py

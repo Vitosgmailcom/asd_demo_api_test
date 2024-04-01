@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Version') {
+        stage('setup_pytest') {
             steps {
-                sh 'Python3 --version'
+                sh 'pip install pytest==8.1.1'
             }
         }
         stage('setup') {
