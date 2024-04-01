@@ -10,10 +10,10 @@ jobs:
     steps:
 
       - name: checkout repo content
-        uses: main/checkout@v2 # checkout the repository content to github runner
+        uses: actions/checkout@v2 # checkout the repository content to github runner
 
       - name: setup python
-        uses: main/setup-python@v4
+        uses: actions/setup-python@v4
         with:
           python-version: '3.9.2' # install the python version needed
           
