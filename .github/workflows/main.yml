@@ -32,8 +32,9 @@ jobs:
         # env:
         #   SOME_SECRET: ${{ secrets.SOME_SECRET }}
         run: |
+          source env.sh
           cd ./tests
-          pytest 
+          pytest -m tcid0
           
       # - name: commit files
       #   run: |
