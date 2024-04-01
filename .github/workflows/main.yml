@@ -1,12 +1,41 @@
-        - name: Docker Run
-  # You may pin to the exact commit or the version.
-  # uses: tj-actions/docker-run@1d25a677da8f1243a138dc5db21e307e92986ffe
-  uses: tj-actions/docker-run@v2.2.1
-  with:
-    # Docker image
-    image: ask_demo
-    # Container name
-    name: Test
-    # Command to run
-    args: pytest --version
-    # Options to pass to docker run
+name: run main.py
+
+on:
+  schedule:
+    - cron: '0 0 * * 1' # At 00:00 on Monday
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: checkout repo content
+        uses: main/checkout@v2 # checkout the repository content to github runner
+
+      - name: setup python
+        uses: main/setup-python@v4
+        with:
+          python-version: '3.9.2' # install the python version needed
+          
+      - name: install python packages
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          
+      - name: execute py script # run main.py
+        # env:
+        #   SOME_SECRET: ${{ secrets.SOME_SECRET }}
+        run: pytest -m tcid99
+          
+      # - name: commit files
+      #   run: |
+      #     git config --local user.email "action@github.com"
+      #     git config --local user.name "GitHub Action"
+      #     git add -A
+      #     git diff-index --quiet HEAD || (git commit -a -m "updated logs" --allow-empty)
+          
+      # - name: push changes
+      #   uses: ad-m/github-push-action@v0.6.0
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     branch: main 
