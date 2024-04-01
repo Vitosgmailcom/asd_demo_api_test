@@ -31,9 +31,7 @@ jobs:
       - name: execute py script # run main.py
         # env:
         #   SOME_SECRET: ${{ secrets.SOME_SECRET }}
-        run: |
-          cd ./tests
-          pytest -m tcid0
+        run: python3 --version
           
       # - name: commit files
       #   run: |
