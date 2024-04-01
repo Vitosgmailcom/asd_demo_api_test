@@ -32,7 +32,6 @@ jobs:
         # env:
         #   SOME_SECRET: ${{ secrets.SOME_SECRET }}
         run: |
-          # source env.sh
           cd ./tests
           pytest -m tcid0
           
