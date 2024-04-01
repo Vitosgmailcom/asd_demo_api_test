@@ -26,11 +26,12 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          
+      - name: Get directory
+        run: ls
       - name: execute py script # run main.py
         # env:
         #   SOME_SECRET: ${{ secrets.SOME_SECRET }}
-        run: pytest test_healthcheck.py
+        run: pytest --version
           
       # - name: commit files
       #   run: |
